@@ -23,7 +23,7 @@ fn spawn_sidecar(app: &AppHandle, port: u16) -> Result<(), Box<dyn std::error::E
     // Tauri 会自动附加平台后缀，无需手动添加 .exe
     let (mut rx, _child) = app
         .shell()
-        .sidecar("binaries/m365-copilot2api")?   ← 直接用字符串
+        .sidecar("binaries/m365-copilot2api")?
         .env("M365_LISTEN", format!("127.0.0.1:{}", port))
         .env("M365_DATA_DIR", data_dir()?)
         .spawn()?;
