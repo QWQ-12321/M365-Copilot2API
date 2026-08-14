@@ -69,7 +69,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: windows-installer
-          path: src-tauri/target/release/bundle/nsis/M365 Copilot2API_0.2.0_x64-setup.exe
+          path: src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/M365 Copilot2API_0.2.0_x64-setup.exe
           if-no-files-found: error
 
   release:
