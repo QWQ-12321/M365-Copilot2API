@@ -16,7 +16,7 @@ permissions:
 
 env:
   CARGO_TERM_COLOR: always
-  RUST_VERSION: '1.77'
+  RUST_VERSION: 'stable'
   GO_VERSION: '1.23'
 
 jobs:
