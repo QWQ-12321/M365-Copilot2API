@@ -1,0 +1,36 @@
+[package]
+name = "m365-copilot2api-app"
+version = "0.2.0"
+description = "M365 Copilot2API Desktop — 将 Microsoft 365 Copilot 转换为 OpenAI / Anthropic 兼容 API 的桌面网关"
+authors = ["35608"]
+license = "MIT"
+repository = "https://github.com/35608/M365-Copilot2API"
+edition = "2021"
+rust-version = "1.77"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "image-png"] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+log = "0.4"
+env_logger = "0.11"
+anyhow = "1"
+reqwest = { version = "0.12", default-features = false, features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+dirs = "5"
+open = "5"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
