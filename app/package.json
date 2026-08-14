@@ -1,0 +1,11 @@
+{
+  "name": "m365-copilot2api-app-frontend",
+  "version": "0.2.0",
+  "description": "M365 Copilot2API 桌面应用前端（纯静态 HTML，无需构建）",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'No build step needed — serving static files from app/public'",
+    "build": "echo 'No build step needed — serving static files from app/public'"
+  },
+  "devDependencies": {}
+}
