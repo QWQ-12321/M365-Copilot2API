@@ -19,14 +19,11 @@ struct ServerRunning(Arc<AtomicBool>);
 
 /// 启动 Go sidecar 进程
 fn spawn_sidecar(app: &AppHandle, port: u16) -> Result<(), Box<dyn std::error::Error>> {
-    let binary_name = format!(
-        "m365-copilot2api{}",
-        if cfg!(windows) { ".exe" } else { "" }
-    );
-
+    // sidecar 名称与 tauri.conf.json 中 externalBin 的条目一致
+    // Tauri 会自动附加平台后缀，无需手动添加 .exe
     let (mut rx, _child) = app
         .shell()
-        .sidecar(&binary_name)?
+        .sidecar("binaries/m365-copilot2api")?   ← 直接用字符串
         .env("M365_LISTEN", format!("127.0.0.1:{}", port))
         .env("M365_DATA_DIR", data_dir()?)
         .spawn()?;
