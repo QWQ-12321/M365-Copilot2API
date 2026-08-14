@@ -2,7 +2,7 @@ use tauri::{
     image::Image,
     menu::{Menu, MenuItem},
     tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent},
-    AppHandle, Manager,
+    AppHandle, Manager, Emitter,
 };
 
 pub fn setup_tray(app: &AppHandle, port: u16) -> tauri::Result<()> {
